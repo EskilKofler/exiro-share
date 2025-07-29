@@ -1,18 +1,20 @@
 // exiro-share/api/share.js
-import admin from 'firebase-admin';
-import { readFileSync } from 'fs';
-import { join } from 'path';
+
+const admin = require('firebase-admin');
+const { readFileSync } = require('fs');
+const { join } = require('path');
 
 // Inizializza Firebase Admin (solo una volta)
 if (!admin.apps.length) {
   admin.initializeApp({
-    credential: admin.credential.applicationDefault(), // o .cert({...})
+    // se usi serviceAccountKey.json, altrimenti usa applicationDefault()
+    credential: admin.credential.applicationDefault(),
     databaseURL: "https://ekoach.firebaseio.com"
   });
 }
 const db = admin.firestore();
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const token = req.query.token;
   if (!token) {
     res.status(400).send("Missing token");
@@ -65,4 +67,4 @@ export default async function handler(req, res) {
 
   res.setHeader("Content-Type", "text/html");
   res.status(200).send(html);
-}
+};
