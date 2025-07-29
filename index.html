@@ -1,63 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exiro Program</title>
-  
-  <!-- Questi tag saranno sovrascritti via JS una volta caricato il programma -->
-  <meta property="og:title" content="Programma Exiro" />
-  <meta property="og:description" content="Scopri il mio programma su Exiro!" />
-  <meta property="og:image" content="https://tuodominio.com/default.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="" />
-  
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "TUO_API_KEY",
-      authDomain: "TUO_PROGETTO.firebaseapp.com",
-      projectId: "TUO_PROJECT_ID",
-      storageBucket: "TUO_PROJECT_ID.appspot.com",
-      messagingSenderId: "...",
-      appId: "..."
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    const params = new URLSearchParams(window.location.search);
-    const token = params.get("token");
-
-    if (token) {
-      const programsRef = collection(db, "public_programs");
-      const q = query(programsRef, where("share_token", "==", token));
-
-      getDocs(q).then(snapshot => {
-        if (!snapshot.empty) {
-          const data = snapshot.docs[0].data();
-          document.querySelector("meta[property='og:title']").setAttribute("content", data.title || "Programma Exiro");
-          document.querySelector("meta[property='og:description']").setAttribute("content", data.description || "");
-          document.querySelector("meta[property='og:image']").setAttribute("content", data.photo_url || "https://tuodominio.com/default.jpg");
-          document.querySelector("meta[property='og:url']").setAttribute("content", window.location.href);
-          document.title = data.title || "Programma Exiro";
-
-          document.body.innerHTML = `
-            <h1>${data.title}</h1>
-            <p>${data.description}</p>
-            <img src="${data.photo_url}" alt="Programma" style="max-width: 100%;"/>
-            <p><a href="https://exiro.app">Apri in Exiro</a></p>
-          `;
-        } else {
-          document.body.innerHTML = `<p>Programma non trovato</p>`;
-        }
-      });
-    }
-  </script>
+  <meta charset="utf-8">
+  <title>Exiro Sharing</title>
+  <meta name="robots" content="noindex">
 </head>
 <body>
-  <p>Caricamento in corso…</p>
+  <p>Usa <code>/share/&lt;token&gt;</code> per condividere un programma.</p>
 </body>
 </html>
