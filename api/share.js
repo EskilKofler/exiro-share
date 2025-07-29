@@ -6,9 +6,9 @@ const { join } = require('path');
 
 // Inizializza Firebase Admin (solo una volta)
 if (!admin.apps.length) {
+  const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT_KEY);
   admin.initializeApp({
-    // se usi serviceAccountKey.json, altrimenti usa applicationDefault()
-    credential: admin.credential.applicationDefault(),
+    credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://ekoach.firebaseio.com"
   });
 }
