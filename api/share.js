@@ -15,14 +15,14 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 module.exports = async function handler(req, res) {
-  // accetta sia ?token=… che ?share_token=…
-  const token = req.query.token || req.query.share_token;
+  // prendo solo share_token
+  const token = req.query.share_token;
   if (!token) {
-    res.status(400).send("Missing token");
+    res.status(400).send("Missing share_token");
     return;
   }
 
-  // Cerca il programma in Firestore
+  // cerco il documento in Firestore
   const snaps = await db
     .collection("public_programs")
     .where("share_token", "==", token)
@@ -39,10 +39,11 @@ module.exports = async function handler(req, res) {
   const title = data.title || "Programma Exiro";
   const desc  = data.description || "";
   const img   = data.photo_url || "https://share.exiro.app/default.jpg";
-  // qui usiamo sempre il link breve “/share/…” per i tuoi bot OG
-  const url   = `https://share.exiro.app/share/${token}`;
-  // ma per il redirect nativo /program/…?share_token=…
-  const redirectUrl = `https://share.exiro.app/program/${doc.id}?share_token=${token}`;
+
+  // **qui** uso il nuovo link per OG-url
+  const ogUrl = `https://share.exiro.app/program/${doc.id}?share_token=${token}`;
+  // e per il redirect in app / browser
+  const redirectUrl = ogUrl;
 
   // Genera HTML con meta OG e redirect
   const html = `<!DOCTYPE html>
@@ -55,14 +56,11 @@ module.exports = async function handler(req, res) {
   <meta property="og:title"       content="${title}" />
   <meta property="og:description" content="${desc}" />
   <meta property="og:image"       content="${img}" />
-  <meta property="og:url"         content="${url}" />
+  <meta property="og:url"         content="${ogUrl}" />
   <meta property="og:type"        content="website" />
   <meta name="twitter:card"       content="summary_large_image" />
 
-  <!-- meta-refresh per i crawler -->
-  <meta http-equiv="refresh" content="0; url=${redirectUrl}" />
-
-  <!-- redirect in JS per utenti browser -->
+  <!-- redirect in JS per utenti browser / deep link -->
   <script>
     window.location.replace("${redirectUrl}");
   </script>
