@@ -1,8 +1,6 @@
 // exiro-share/api/share.js
 
 const admin = require('firebase-admin');
-const { readFileSync } = require('fs');
-const { join } = require('path');
 
 // Inizializza Firebase Admin (solo una volta)
 if (!admin.apps.length) {
@@ -15,7 +13,7 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 module.exports = async function handler(req, res) {
-  const token = req.query.token;
+  const token = req.query.token;       // <-- qui
   if (!token) {
     res.status(400).send("Missing token");
     return;
@@ -38,9 +36,11 @@ module.exports = async function handler(req, res) {
   const title = data.title || "Programma Exiro";
   const desc  = data.description || "";
   const img   = data.photo_url || "https://share.exiro.app/default.jpg";
-  const url   = `https://share.exiro.app/share/${token}`;
 
-  // Genera HTML con meta OG
+  // Genera sia l'URL OG che il redirect
+  const ogUrl      = `https://share.exiro.app/program/${doc.id}?token=${token}`;
+  const redirectJs = `window.location.replace("${ogUrl}")`;
+
   const html = `<!DOCTYPE html>
 <html lang="it">
 <head>
@@ -51,18 +51,12 @@ module.exports = async function handler(req, res) {
   <meta property="og:title"       content="${title}" />
   <meta property="og:description" content="${desc}" />
   <meta property="og:image"       content="${img}" />
-  <meta property="og:url"         content="${url}" />
+  <meta property="og:url"         content="${ogUrl}" />
   <meta property="og:type"        content="website" />
   <meta name="twitter:card"       content="summary_large_image" />
 
-  <!-- redirect in JS per utenti browser -->
-  <script>
-    // versione web
-    window.location.replace("${url}");
-
-    // oppure, per forzare l’apertura nativa se hai registrato lo Universal Link / custom scheme:
-    // window.location.replace("exiro://share/${token}");
-  </script>
+  <!-- redirect in JS per utenti browser / deep link -->
+  <script>${redirectJs}</script>
 </head>
 <body>
   <p>Reindirizzamento in corso…</p>
