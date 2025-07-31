@@ -40,10 +40,10 @@ module.exports = async function handler(req, res) {
   const desc  = data.description || "";
   const img   = data.photo_url || "https://share.exiro.app/default.jpg";
 
-  // **qui** uso il nuovo link per OG-url
-  const ogUrl = `https://share.exiro.app/program/${doc.id}?share_token=${token}`;
-  // e per il redirect in app / browser
-  const redirectUrl = ogUrl;
+  // URL che i bot (WhatsApp, Facebook, ecc.) leggeranno per generare il preview
+  const ogUrl = `https://share.exiro.app/share/${token}`;
+  // URL di destinazione per il redirect in browser/app
+  const redirectUrl = `https://share.exiro.app/program/${doc.id}?share_token=${token}`;
 
   // Genera HTML con meta OG e redirect
   const html = `<!DOCTYPE html>
@@ -62,7 +62,7 @@ module.exports = async function handler(req, res) {
 
   <!-- redirect in JS per utenti browser / deep link -->
   <script>
-    window.location.replace("${redirectUrl}");
+    window.location.replace("https://share.exiro.app/program/${doc.id}?share_token=${token}");
   </script>
 </head>
 <body>

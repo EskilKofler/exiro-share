@@ -1,8 +1,6 @@
 {
   "rewrites": [
-    {
-      "source": "/program/:docId",
-      "destination": "/api/share?share_token=:docId"
-    }
+    { "source": "/share/:token",   "destination": "/api/share?token=:token" },
+    { "source": "/program/:docId", "destination": "/api/share?share_token=:docId" }
   ]
 }
