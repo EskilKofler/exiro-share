@@ -57,7 +57,7 @@ module.exports = async function handler(req, res) {
 
   <!-- redirect in JS per utenti browser -->
   <script>
-    window.location.replace("https://app.exiro.com/program/${doc.id}");
+    window.location.replace("https://share.exiro.app/program/${doc.id}?share_token=${token}");
   </script>
 </head>
 <body>
