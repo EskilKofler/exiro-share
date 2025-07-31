@@ -37,7 +37,7 @@ module.exports = async function handler(req, res) {
   const desc  = data.description || "";
   const img   = data.photo_url || "https://share.exiro.app/default.jpg";
 
-  // Genera sia l'URL OG che il redirect
+  // L’URL verso cui reindirizzare (e che rimane nei link profondi)
   const ogUrl      = `https://share.exiro.app/program/${doc.id}?token=${token}`;
   const redirectJs = `window.location.replace("${ogUrl}")`;
 
@@ -47,14 +47,14 @@ module.exports = async function handler(req, res) {
   <meta charset="UTF-8" />
   <title>${title}</title>
 
-  <!-- Open Graph -->
+  <!-- Open Graph: solo titolo, descrizione e immagine -->
   <meta property="og:title"       content="${title}" />
   <meta property="og:description" content="${desc}" />
   <meta property="og:image"       content="${img}" />
   <meta property="og:type"        content="website" />
   <meta name="twitter:card"       content="summary_large_image" />
 
-  <!-- redirect in JS per utenti browser / deep link -->
+  <!-- redirect in JS per browser o deep link -->
   <script>${redirectJs}</script>
 </head>
 <body>
