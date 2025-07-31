@@ -15,7 +15,8 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 module.exports = async function handler(req, res) {
-  const token = req.query.token;
+  // accetta sia ?token=… che ?share_token=…
+  const token = req.query.token || req.query.share_token;
   if (!token) {
     res.status(400).send("Missing token");
     return;
@@ -38,7 +39,10 @@ module.exports = async function handler(req, res) {
   const title = data.title || "Programma Exiro";
   const desc  = data.description || "";
   const img   = data.photo_url || "https://share.exiro.app/default.jpg";
-  const targetUrl = `https://share.exiro.app/program/${doc.id}?share_token=${token}`;
+  // qui usiamo sempre il link breve “/share/…” per i tuoi bot OG
+  const url   = `https://share.exiro.app/share/${token}`;
+  // ma per il redirect nativo /program/…?share_token=…
+  const redirectUrl = `https://share.exiro.app/program/${doc.id}?share_token=${token}`;
 
   // Genera HTML con meta OG e redirect
   const html = `<!DOCTYPE html>
@@ -51,16 +55,16 @@ module.exports = async function handler(req, res) {
   <meta property="og:title"       content="${title}" />
   <meta property="og:description" content="${desc}" />
   <meta property="og:image"       content="${img}" />
-  <meta property="og:url"         content="${targetUrl}" />
+  <meta property="og:url"         content="${url}" />
   <meta property="og:type"        content="website" />
   <meta name="twitter:card"       content="summary_large_image" />
 
   <!-- meta-refresh per i crawler -->
-  <meta http-equiv="refresh" content="0; url=${targetUrl}" />
+  <meta http-equiv="refresh" content="0; url=${redirectUrl}" />
 
   <!-- redirect in JS per utenti browser -->
   <script>
-    window.location.replace("${targetUrl}");
+    window.location.replace("${redirectUrl}");
   </script>
 </head>
 <body>
