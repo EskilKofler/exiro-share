@@ -38,9 +38,9 @@ module.exports = async function handler(req, res) {
   const title = data.title || "Programma Exiro";
   const desc  = data.description || "";
   const img   = data.photo_url || "https://share.exiro.app/default.jpg";
-  const url   = `https://share.exiro.app/share/${token}`;
+  const targetUrl = `https://share.exiro.app/program/${doc.id}?share_token=${token}`;
 
-  // Genera HTML con meta OG
+  // Genera HTML con meta OG e redirect
   const html = `<!DOCTYPE html>
 <html lang="it">
 <head>
@@ -51,15 +51,16 @@ module.exports = async function handler(req, res) {
   <meta property="og:title"       content="${title}" />
   <meta property="og:description" content="${desc}" />
   <meta property="og:image"       content="${img}" />
-  <meta property="og:url"         content="${url}" />
+  <meta property="og:url"         content="${targetUrl}" />
   <meta property="og:type"        content="website" />
   <meta name="twitter:card"       content="summary_large_image" />
 
+  <!-- meta-refresh per i crawler -->
+  <meta http-equiv="refresh" content="0; url=${targetUrl}" />
+
   <!-- redirect in JS per utenti browser -->
   <script>
-    window.location.replace(
-      "https://share.exiro.app/program/${doc.id}?share_token=${token}"
-    );
+    window.location.replace("${targetUrl}");
   </script>
 </head>
 <body>
