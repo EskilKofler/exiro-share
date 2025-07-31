@@ -58,8 +58,8 @@ module.exports = async function handler(req, res) {
   <!-- redirect in JS per utenti browser -->
   <script>
     <!-- versione web -->
-    
-    window.location.replace("https://app.exiro.com/program/${doc.id}?share_token=${token}");
+
+    window.location.replace("https://open.exiro.app/program/${doc.id}?share_token=${token}");
 
     <!-- oppure, per forzare l’apertura nativa se hai registrato lo Universal Link / custom scheme: -->
     <!-- window.location.replace("exiro://share/${token}"); -->
