@@ -35,7 +35,7 @@ module.exports = async function handler(req, res) {
   const data = doc.data();
   const title = data.title || "Programma Exiro";
   const desc  = data.description || "";
-  const img   = data.photo_url || "https://share.exiro.app/default.jpg";
+  const img   = data.photo_url || "https://share.exiro.app/exiro.jpg";
 
   // L’URL verso cui reindirizzare (e che rimane nei link profondi)
   const ogUrl      = `https://share.exiro.app/program/${doc.id}?token=${token}`;
