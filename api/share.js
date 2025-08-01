@@ -35,7 +35,7 @@ module.exports = async function handler(req, res) {
   const data = doc.data();
   const title = data.title || "Programma Exiro";
   const desc  = data.description || "";
-  const img   = data.photo_url || "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fexiro.jpg?alt=media&token=6a91407d-ce51-474e-8c18-6c84837ff5a0";
+  const img   = data.photo_url || "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fexiro512.png?alt=media&token=d377cad7-ff08-49bf-9ef0-4e3e3d26ee7b";
 
   // L’URL verso cui reindirizzare (e che rimane nei link profondi)
   const ogUrl      = `https://share.exiro.app/program/${doc.id}?token=${token}`;
