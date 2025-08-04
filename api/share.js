@@ -1,5 +1,3 @@
-// exiro-share/api/share.js
-
 const admin = require('firebase-admin');
 const path = require('path');
 
@@ -34,7 +32,7 @@ module.exports = async function handler(req, res) {
 
   const doc = snaps.docs[0];
   const data = doc.data();
-  const title = data.title || "Download Exiro";
+  const title = data.title || "Exiro";
   const desc  = data.description || "";
   const img   = data.photo_url ||
     "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
@@ -44,12 +42,12 @@ module.exports = async function handler(req, res) {
     <div class="download-container">
       <div class="header">
         <img src="/img/exiro_icon_site.png" alt="Exiro Logo" class="logo" />
-        <h1 class="title">Download Exiro</h1>
+        <h1 class="title">Exiro</h1>
       </div>
       <ul class="feature-list">
         <li>
           <div class="feat-row">
-            <img src="/icon/dumbbell.svg" alt="Create Your Workout Plan" class="feat-icon" />
+            <img src="/icon/event_note.svg" alt="Create Your Workout Plan" class="feat-icon" />
             <div class="feat-content">
               <span class="feat-title">Create Your Workout Plan</span>
             </div>
@@ -125,12 +123,12 @@ module.exports = async function handler(req, res) {
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; height: 100%; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; position: relative; padding-bottom: 80px; }
-    .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
+    .download-container { width: 100%; max-width: 480px; margin: 12px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
     .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 32px; }
     .logo {
       width: 120px;
       height: auto;
-      margin-bottom: 10px; /* ridotto lo spazio superiore */
+      margin-bottom: 20px; /* aumentato spazio sotto l'immagine */
       border-radius: 20%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
