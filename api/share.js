@@ -81,6 +81,11 @@ module.exports = async function handler(req, res) {
   <meta name="twitter:card"       content="summary_large_image" />
 
   <style>
+    /* Use border-box to prevent overflow */
+    *, *::before, *::after { box-sizing: border-box; }
+    /* Impedisce overflow orizzontale */
+    html, body { overflow-x: hidden; width: 100%; }
+
     /* Impedisce overflow orizzontale */
     html, body { overflow-x: hidden; }
 
