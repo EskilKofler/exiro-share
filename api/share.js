@@ -85,14 +85,14 @@ module.exports = async function handler(req, res) {
       <!-- Nota spostata sopra i pulsanti ma nascosta -->
       <p class="note">Free on iOS e Android • No card request</p>
       <div class="store-links">
-        <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
+        <a href="https://apps.apple.com/it/app/duolingo-language-lessons/id570060128?l=en-GB" target="_blank" rel="noopener">
           <img src="/img/apple_logo.png" alt="Apple Logo" class="btn-icon" />
           <div class="text">
             <span class="small">Download on the</span>
             <span class="large">App Store</span>
           </div>
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">
+        <a href="https://play.google.com/store/apps/details?id=com.duolingo" target="_blank" rel="noopener">
           <img src="/img/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
           <div class="text">
             <span class="small">Get it on</span>
