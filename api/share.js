@@ -124,9 +124,31 @@ module.exports = async function handler(req, res) {
     .feat-title { font-weight: 700; font-size: 0.95rem; color: #333; line-height: 1.2; }
     .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
     .store-links { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 24px; }
-    .store-links a { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 100%; }
-    .btn-icon { width: 36px; height: auto; margin-bottom: 8px; }
-    .text { display: flex; flex-direction: column; align-items: center; }
+    .store-links a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: #000;
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 100%;
+    }
+    .btn-icon {
+      width: 36px;
+      height: auto;
+      margin-right: 12px;
+      margin-bottom: 0;
+    }
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
     .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
     .large { font-size: 1.375rem; line-height: 1; font-weight: 700; margin-top: 2px; }
     .note { font-size: 0.75rem; color: #666; margin: 0 auto 40px; text-align: center; }
