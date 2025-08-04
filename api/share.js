@@ -46,8 +46,8 @@ module.exports = async function handler(req, res) {
       <h1>Potenzia il tuo allenamento con Exiro</h1>
       <p>Scarica l’app per vivere l’esperienza completa:</p>
       <div class="store-links">
-        <a href="https://apps.apple.com/it/app/duolingo-language-lessons/id570060128?l=en-GB">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.duolingo">Play Store</a>
+        <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">Play Store</a>
       </div>
     </div>`;
 
@@ -67,16 +67,16 @@ module.exports = async function handler(req, res) {
   <meta name="twitter:card"       content="summary_large_image" />
 
   <style>
-    body { margin:0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color:#333; display:flex; align-items:center; justify-content:center; height:100vh; background:#f9f9f9; }
-    .download-container { max-width: 480px; margin: 0 auto; padding: 20px; text-align: center; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-    .logo { max-width: 120px; margin: 0 auto 20px; display: block; }
-    h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    p { font-size: 1rem; margin-bottom: 1rem; }
-    .store-links { display: flex; justify-content: center; gap: 10px; }
-    .store-links a { text-decoration: none; padding: 10px 15px; border-radius: 8px; background: #007AFF; color: #fff; font-weight: 500; }
-    @media(min-width: 600px) {
-      .download-container { max-width: 600px; }
-      h1 { font-size: 2rem; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#333; display:flex; align-items:center; justify-content:center; height:100vh; background:#f9f9f9; }
+    .download-container { max-width:480px; margin:0 auto; padding:20px; text-align:center; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    .logo { max-width:120px; margin:0 auto 20px; display:block; }
+    h1 { font-size:1.5rem; margin-bottom:0.5rem; }
+    p { font-size:1rem; margin-bottom:1rem; }
+    .store-links { display:flex; justify-content:center; gap:10px; }
+    .store-links a { text-decoration:none; padding:10px 15px; border-radius:8px; background:#007AFF; color:#fff; font-weight:500; }
+    @media(min-width:600px) {
+      .download-container { max-width:600px; }
+      h1 { font-size:2rem; }
     }
   </style>
 </head>

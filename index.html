@@ -2,10 +2,32 @@
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <title>Exiro Sharing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potenzia il tuo allenamento con Exiro</title>
   <meta name="robots" content="noindex">
+  <style>
+    body { margin:0; padding:0; display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:#f9f9f9; }
+    .card { background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); padding:30px; max-width:400px; width:90%; text-align:center; }
+    .logo { max-width:100px; margin-bottom:20px; }
+    h1 { font-size:1.75rem; margin-bottom:10px; color:#222; }
+    p { font-size:1rem; margin-bottom:20px; color:#555; }
+    .buttons { display:flex; justify-content:center; gap:15px; }
+    .buttons a { display:inline-block; text-decoration:none; padding:12px 20px; border-radius:8px; background:#007AFF; color:#fff; font-weight:600; }
+    @media(min-width:600px) {
+      .card { padding:40px; max-width:500px; }
+      h1 { font-size:2rem; }
+    }
+  </style>
 </head>
 <body>
-  <p>Usa <code>/share/&lt;token&gt;</code> per condividere un programma.</p>
+  <div class="card">
+    <img src="/app_icon_light.png" alt="Exiro Logo" class="logo">
+    <h1>Potenzia il tuo allenamento con Exiro</h1>
+    <p>Scarica l’app per vivere l’esperienza completa:</p>
+    <div class="buttons">
+      <a href="https://apps.apple.com/app/idYOUR_IOS_ID" target="_blank" rel="noopener">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">Play Store</a>
+    </div>
+  </div>
 </body>
 </html>
