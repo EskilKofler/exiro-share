@@ -12,6 +12,11 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 module.exports = async function handler(req, res) {
+  // FORZA NO-CACHE su ogni preview
+  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Expires", "0");
+
   // Gestione delle richieste HEAD per LinkPresentation e preview su client che usano HEAD
   if (req.method === 'HEAD') {
     res.setHeader("Content-Type", "text/html");
@@ -122,7 +127,7 @@ module.exports = async function handler(req, res) {
   <meta property="og:title"       content="${title}" />
   <meta property="og:description" content="${desc}" />
   <meta property="og:image"       content="${img}" />
-  <meta property="og:url"         content="${req.protocol}://${req.get('host')}${req.originalUrl}" />
+  <meta property="og:url"         content="${(req.headers['x-forwarded-proto']||'https')}://${req.get('host')}${req.originalUrl}" />
   <meta property="og:site_name"   content="Exiro" />
   <meta property="og:type"        content="website" />
 
@@ -195,5 +200,5 @@ module.exports = async function handler(req, res) {
 </html>`;
 
   res.setHeader("Content-Type", "text/html");
-  res.status(200).send(html);
+  return res.status(200).send(html);
 };
