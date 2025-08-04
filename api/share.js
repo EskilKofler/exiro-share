@@ -117,23 +117,67 @@ module.exports = async function handler(req, res) {
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; height: 100%; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; position: relative; padding-bottom: 80px; }
+
     .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
-    .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 32px; }
-    .logo {
-      width: 120px;                  /* un po' più grande */
-      height: auto;
-      margin-bottom: 20px;           /* distanza maggiore dal titolo */
-      border-radius: 20%;            /* mantiene gli angoli arrotondati al 20% */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* ombra delicata sui bordi arrotondati */
+
+    .header {
+      display: flex;
+      flex-direction: row;       /* icona e titolo sulla stessa linea */
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
     }
-    .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; }
+    .logo {
+      width: 120px;              
+      height: auto;
+      border-radius: 20%;        /* mantiene angoli arrotondati */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .title {
+      font-size: 2rem;
+      margin: 0;
+      line-height: 1.2;
+      font-weight: 800;
+      text-align: center;
+    }
+
     .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
-    .feature-list li { display: flex; align-items: center; margin-bottom: 16px; }
-    .feat-icon { width: 40px; height: auto; margin-right: 8px; filter: brightness(0); }
-    .feat-content { text-align: left; }
-    .feat-title { font-weight: 700; font-size: 1.1rem; color: #222; line-height: 1.2; }
-    .feat-desc { display: block; font-size: 0.9375rem; color: #666; margin: 4px 0 0; }
+    .feature-list li {
+      display: grid;             /* layout a griglia per posizionare desc sotto l'icona */
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "icon title"
+        "desc title";
+      column-gap: 12px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+    .feat-icon {
+      grid-area: icon;
+      width: 32px;
+      height: auto;
+      filter: brightness(0);
+    }
+    .feat-content { display: contents; }
+    .feat-title {
+      grid-area: title;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.2;
+    }
+    .feat-desc {
+      grid-area: desc;
+      display: block;
+      font-size: 0.875rem;
+      color: #666;
+      margin: 4px 0 0;
+    }
+
     .note { display: none; }
+
     .store-links {
       display: flex;
       flex-direction: column;
@@ -143,17 +187,39 @@ module.exports = async function handler(req, res) {
       left: 0;
       right: 0;
       bottom: 0;
-      padding: 12px 16px 16px; /* 12px top spacer */
+      padding: 12px 16px 16px;
       background: #FAFAFA;
-      box-shadow: 0 -4px 8px rgba(0,0,0,0.1); /* leggera ombra sopra i pulsanti su mobile */
+      box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
     }
-    .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
+    .store-links a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: #000;
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 480px;
+    }
     .btn-icon { width: 36px; height: auto; margin-right: 12px; }
     .text { display: flex; flex-direction: column; align-items: center; text-align: center; }
     .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
     .large { font-size: 1.375rem; line-height: 1; font-weight: 700; margin-top: 2px; }
+
     @media(min-width: 600px) {
-      .store-links { position: static; padding: 0; bottom: auto; background: transparent; flex-direction: row; justify-content: center; margin-top: 24px; box-shadow: none; }
+      .store-links {
+        position: static;
+        padding: 0;
+        bottom: auto;
+        background: transparent;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 24px;
+        box-shadow: none;
+      }
       .store-links a { width: auto; margin: 0 8px; }
     }
   </style>
