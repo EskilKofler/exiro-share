@@ -46,14 +46,14 @@ module.exports = async function handler(req, res) {
       <h1>Passa al livello superiore con Exiro</h1>
       <ul class="feature-list">
         <li>
-          <img src="/icon/target.svg" alt="Create Your Workout Plan" class="feat-icon" />
+          <img src="/icon/event_note.svg" alt="Create Your Workout Plan" class="feat-icon" />
           <div class="feat-content">
             <span class="feat-title">Create Your Workout Plan</span>
             <small class="feat-desc">Over 2,300 exercises to build any routine, customizing reps, sets, rest times and more.</small>
           </div>
         </li>
         <li>
-          <img src="/icon/tech.svg" alt="Smart Recommendations" class="feat-icon" />
+          <img src="/icon/psycology.svg" alt="Smart Recommendations" class="feat-icon" />
           <div class="feat-content">
             <span class="feat-title">Smart Recommendations</span>
             <small class="feat-desc">Our algorithm filters the Exiro Marketplace to show only the plans best suited to your goals.</small>
@@ -67,7 +67,7 @@ module.exports = async function handler(req, res) {
           </div>
         </li>
         <li>
-          <img src="/icon/shop.svg" alt="Marketplace & Monetization" class="feat-icon" />
+          <img src="/icon/storefront.svg" alt="Marketplace & Monetization" class="feat-icon" />
           <div class="feat-content">
             <span class="feat-title">Marketplace & Monetization</span>
             <small class="feat-desc">Download, publish and earn real money from your routines thanks to Stripe.</small>
