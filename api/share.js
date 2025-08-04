@@ -128,8 +128,8 @@ module.exports = async function handler(req, res) {
   <meta property="og:title"       content="${title}" />
   <meta property="og:description" content="${desc}" />
   <meta property="og:image"       content="${img}" />
-  <meta property="og:url"         content="${(req.headers['x-forwarded-proto']||'https')}://${req.get('host')}${req.originalUrl}" />
-  <meta property="og:site_name"   content="Exiro" />
+<meta property="og:url" content="${(req.headers['x-forwarded-proto']||'https')}://${req.headers.host}${req.url}" />
+<meta property="og:site_name"   content="Exiro" />
   <meta property="og:type"        content="website" />
 
   <!-- Twitter Card -->
