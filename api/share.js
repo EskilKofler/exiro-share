@@ -12,6 +12,12 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 module.exports = async function handler(req, res) {
+  // Gestione delle richieste HEAD per LinkPresentation e preview su client che usano HEAD
+  if (req.method === 'HEAD') {
+    res.setHeader("Content-Type", "text/html");
+    return res.status(200).end();
+  }
+
   const token = req.query.token;
   if (!token) {
     res.status(400).send("Missing token");
@@ -107,7 +113,7 @@ module.exports = async function handler(req, res) {
 <html lang="it">
 <head>
   <!-- Favicon per Vercel e browser -->
-  <link rel="icon" type="image/png" href="/img/exiro_icon_site.png" />
+  <link rel="icon" type="image/png" href="/img/exiro_logo_transparent.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
@@ -116,8 +122,18 @@ module.exports = async function handler(req, res) {
   <meta property="og:title"       content="${title}" />
   <meta property="og:description" content="${desc}" />
   <meta property="og:image"       content="${img}" />
+  <meta property="og:url"         content="${req.protocol}://${req.get('host')}${req.originalUrl}" />
+  <meta property="og:site_name"   content="Exiro" />
   <meta property="og:type"        content="website" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="${title}" />
+  <meta name="twitter:description"content="${desc}" />
+  <meta name="twitter:image"      content="${img}" />
+
+  <!-- Apple Smart App Banner -->
+  <meta name="apple-itunes-app"   content="app-id=TUO_APP_ID" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
