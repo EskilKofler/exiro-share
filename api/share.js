@@ -42,7 +42,7 @@ module.exports = async function handler(req, res) {
   // Fallback HTML: mostra sempre la pagina di download personalizzata
   const downloadHtml = `
     <div class="download-container">
-      <img src="/img/app_icon_light.png" alt="Exiro Logo" class="logo" />
+      <img src="/img/exiro_logo_transparent.png" alt="Exiro Logo" class="logo" />
       <h1>Potenzia il tuo allenamento con Exiro</h1>
       <p>Scarica l’app per vivere l’esperienza completa</p>
     </div>
@@ -63,6 +63,8 @@ module.exports = async function handler(req, res) {
   const html = `<!DOCTYPE html>
 <html lang="it">
 <head>
+  <!-- Favicon per Vercel e browser -->
+  <link rel="icon" type="image/png" href="/img/exiro_logo_transparent.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
