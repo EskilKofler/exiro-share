@@ -32,7 +32,7 @@ module.exports = async function handler(req, res) {
 
   const doc = snaps.docs[0];
   const data = doc.data();
-  const title = data.title || "Download Exiro";
+  const title = data.title || "Exiro";
   const desc  = data.description || "";
   const img   = data.photo_url ||
     "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
@@ -42,7 +42,7 @@ module.exports = async function handler(req, res) {
     <div class="download-container">
       <div class="header">
         <img src="/img/exiro_icon_site.png" alt="Exiro Logo" class="logo" />
-        <h1 class="title">Download Exiro</h1>
+        <h1 class="title">Exiro</h1>
       </div>
       <ul class="feature-list">
         <li>
