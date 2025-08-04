@@ -118,10 +118,9 @@ module.exports = async function handler(req, res) {
     html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; height: 100%; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; position: relative; padding-bottom: 80px; }
     .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
-    .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
-    .logo { width: 80px; height: auto; }          /* icona rimpicciolita */
-    .title { font-size: 2rem; margin: 0 0 0 16px;  /* spazio orizzontale dal logo */
-              line-height: 1.2; font-weight: 800; text-align: left; }
+    .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 24px; }
+    .logo { width: 80px; height: auto; margin-bottom: 12px; }
+    .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
     .feature-list li { display: flex; align-items: center; margin-bottom: 16px; }
     .feat-icon { width: 32px; height: auto; margin-right: 12px; filter: brightness(0); }
@@ -129,7 +128,18 @@ module.exports = async function handler(req, res) {
     .feat-title { font-weight: 700; font-size: 0.95rem; color: #333; line-height: 1.2; }
     .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
     .note { display: none; }
-    .store-links { display: flex; flex-direction: column; align-items: center; gap: 10px; position: fixed; left: 0; right: 0; bottom: 12px; padding: 0px 16px; background: #FAFAFA; }
+    .store-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 16px 16px; /* 12px top spacer */
+      background: #FAFAFA;
+    }
     .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
     .btn-icon { width: 36px; height: auto; margin-right: 12px; }
     .text { display: flex; flex-direction: column; align-items: center; text-align: center; }
