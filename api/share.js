@@ -85,7 +85,7 @@ module.exports = async function handler(req, res) {
           </div>
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">
-          <img src="/img/play_google_logo.png" alt="Play Store Logo" class="btn-icon" />
+          <img src="/img/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
           <div class="text">
             <span class="small">Get it on</span>
             <span class="large">Google Play</span>
