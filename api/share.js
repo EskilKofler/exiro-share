@@ -48,32 +48,40 @@ module.exports = async function handler(req, res) {
       </div>
       <ul class="feature-list">
         <li>
-          <img src="/icon/dumbbell.svg" alt="Create Your Workout Plan" class="feat-icon" />
-          <div class="feat-content">
-            <span class="feat-title">Create Your Workout Plan</span>
-            <small class="feat-desc">Over 2,300 exercises to build any routine, customizing reps, sets, rest times and more.</small>
+          <div class="feat-row">
+            <img src="/icon/dumbbell.svg" alt="Create Your Workout Plan" class="feat-icon" />
+            <div class="feat-content">
+              <span class="feat-title">Create Your Workout Plan</span>
+            </div>
           </div>
+          <small class="feat-desc">Over 2,300 exercises to build any routine, customizing reps, sets, rest times and more.</small>
         </li>
         <li>
-          <img src="/icon/psycology.svg" alt="Smart Recommendations" class="feat-icon" />
-          <div class="feat-content">
-            <span class="feat-title">Smart Recommendations</span>
-            <small class="feat-desc">Our algorithm filters the Exiro Marketplace to show only the plans best suited to your goals.</small>
+          <div class="feat-row">
+            <img src="/icon/psycology.svg" alt="Smart Recommendations" class="feat-icon" />
+            <div class="feat-content">
+              <span class="feat-title">Smart Recommendations</span>
+            </div>
           </div>
+          <small class="feat-desc">Our algorithm filters the Exiro Marketplace to show only the plans best suited to your goals.</small>
         </li>
         <li>
-          <img src="/icon/timer.svg" alt="Live Tracking & Log-Book" class="feat-icon" />
-          <div class="feat-content">
-            <span class="feat-title">Live Tracking & Log-Book</span>
-            <small class="feat-desc">Track kilos, reps and sessions for every program; follow video tutorials and a built-in timer in one screen.</small>
+          <div class="feat-row">
+            <img src="/icon/timer.svg" alt="Live Tracking & Log-Book" class="feat-icon" />
+            <div class="feat-content">
+              <span class="feat-title">Live Tracking & Log-Book</span>
+            </div>
           </div>
+          <small class="feat-desc">Track kilos, reps and sessions for every program; follow video tutorials and a built-in timer in one screen.</small>
         </li>
         <li>
-          <img src="/icon/storefront.svg" alt="Marketplace & Monetization" class="feat-icon" />
-          <div class="feat-content">
-            <span class="feat-title">Marketplace & Monetization</span>
-            <small class="feat-desc">Download, publish and earn real money from your routines thanks to Stripe.</small>
+          <div class="feat-row">
+            <img src="/icon/storefront.svg" alt="Marketplace & Monetization" class="feat-icon" />
+            <div class="feat-content">
+              <span class="feat-title">Marketplace & Monetization</span>
+            </div>
           </div>
+          <small class="feat-desc">Download, publish and earn real money from your routines thanks to Stripe.</small>
         </li>
       </ul>
       <!-- Nota spostata sopra i pulsanti ma nascosta -->
@@ -120,19 +128,20 @@ module.exports = async function handler(req, res) {
     .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
     .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 32px; }
     .logo {
-      width: 120px;                  /* un po' più grande */
+      width: 120px;
       height: auto;
-      margin-bottom: 20px;           /* distanza maggiore dal titolo */
-      border-radius: 20%;            /* mantiene gli angoli arrotondati al 20% */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* ombra delicata sui bordi arrotondati */
+      margin-bottom: 20px;
+      border-radius: 20%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
-    .feature-list li { display: flex; align-items: flex-start; margin-bottom: 16px; }
+    .feature-list li { display: flex; flex-direction: column; margin-bottom: 16px; }
+    .feat-row { display: flex; align-items: center; }
     .feat-icon { width: 40px; height: auto; margin-right: 8px; filter: brightness(0); }
-    .feat-content { text-align: left; display: flex; flex-direction: column; }
+    .feat-content { flex: 1; }
     .feat-title { font-weight: 700; font-size: 1.1rem; color: #222; line-height: 1.2; }
-    .feat-desc { display: block; font-size: 0.9375rem; color: #666; margin: 4px 0 0; }
+    .feat-desc { display: block; font-size: 0.9375rem; color: #666; margin: 4px 0 0 48px; }
     .note { display: none; }
     .store-links {
       display: flex;
@@ -143,9 +152,9 @@ module.exports = async function handler(req, res) {
       left: 0;
       right: 0;
       bottom: 0;
-      padding: 12px 16px 16px; /* 12px top spacer */
+      padding: 12px 16px 16px;
       background: #FAFAFA;
-      box-shadow: 0 -4px 8px rgba(0,0,0,0.1); /* leggera ombra sopra i pulsanti su mobile */
+      box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
     }
     .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
     .btn-icon { width: 36px; height: auto; margin-right: 12px; }
