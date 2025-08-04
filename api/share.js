@@ -34,7 +34,7 @@ module.exports = async function handler(req, res) {
 
   const doc = snaps.docs[0];
   const data = doc.data();
-  const title = data.title || "Programma Exiro";
+  const title = data.title || "Download Exiro";
   const desc  = data.description || "";
   const img   = data.photo_url ||
     "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
@@ -43,8 +43,8 @@ module.exports = async function handler(req, res) {
   const downloadHtml = `
     <div class="download-container">
       <div class="header">
-        <img src="/img/exiro_logo_transparent.png" alt="Exiro Logo" class="logo" />
-        <h1 class="title">Passa al livello superiore con Exiro</h1>
+        <img src="/img/exiro_logo_site.png" alt="Exiro Logo" class="logo" />
+        <h1 class="title">Download Exiro</h1>
       </div>
       <ul class="feature-list">
         <li>
@@ -101,7 +101,7 @@ module.exports = async function handler(req, res) {
 <html lang="it">
 <head>
   <!-- Favicon per Vercel e browser -->
-  <link rel="icon" type="image/png" href="/img/exiro_logo_transparent.png" />
+  <link rel="icon" type="image/png" href="/img/exiro_logo_site.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
@@ -118,8 +118,13 @@ module.exports = async function handler(req, res) {
     html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; height: 100%; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; position: relative; padding-bottom: 80px; }
     .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
-    .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 24px; }
-    .logo { width: 80px; height: auto; margin-bottom: 12px; }
+    .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 32px; }
+    .logo {
+      width: 120px;              /* un po' più grande */
+      height: auto;
+      margin-bottom: 20px;       /* distanza maggiore dal titolo */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);  /* ombra delicata */
+    }
     .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
     .feature-list li { display: flex; align-items: center; margin-bottom: 16px; }
