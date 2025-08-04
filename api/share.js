@@ -82,9 +82,8 @@ module.exports = async function handler(req, res) {
 
   <style>
     /* Impedisce overflow orizzontale */
-    html, body {
-      overflow-x: hidden;
-    }
+    html, body { overflow-x: hidden; }
+
     /* Mantieni proporzioni immagini */
     img { max-width: 100%; height: auto; }
 
@@ -183,6 +182,4 @@ module.exports = async function handler(req, res) {
 
   res.setHeader("Content-Type", "text/html");
   res.status(200).send(html);
-};```
-
-Con queste modifiche il contenuto non genererà più scroll orizzontale e si potrà scorrere solo in verticale. Fammi sapere se va bene!
+};
