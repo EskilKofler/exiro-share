@@ -44,17 +44,19 @@ module.exports = async function handler(req, res) {
     <div class="download-container">
       <img src="/img/app_icon_light.png" alt="Exiro Logo" class="logo" />
       <h1>Potenzia il tuo allenamento con Exiro</h1>
-      <p>Scarica l’app per vivere l’esperienza completa:</p>
-      <div class="store-links">
-        <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
-          <img src="/img/apple_logo.png" alt="Apple Logo" class="btn-icon" />
-          <span>Download on App Store</span>
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">
-          <img src="/img/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
-          <span>Get it on Google Play</span>
-        </a>
-      </div>
+      <p>Scarica l’app per vivere l’esperienza completa</p>
+    </div>
+    <div class="store-links">
+      <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
+        <img src="/img/apple_logo.png" alt="Apple Logo" class="btn-icon" />
+        <span class="small">Download on the</span>
+        <span class="large">App Store</span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">
+        <img src="/img/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
+        <span class="small">Get it on</span>
+        <span class="large">Google Play</span>
+      </a>
     </div>`;
 
   // HTML completo con logo e design responsive
@@ -73,70 +75,88 @@ module.exports = async function handler(req, res) {
   <meta name="twitter:card"       content="summary_large_image" />
 
   <style>
-    /* Mantieni proporzioni originali */
+    /* Mantieni proporzioni immagini */
     img { max-width: 100%; height: auto; }
 
     body {
       margin: 0;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #FAFAFA;
       color: #333;
-      background: #FAFAFA; /* Colore di sfondo aggiornato */
-      padding-top: 20px;
     }
     .download-container {
-      width: 90%;
+      width: 100%;
       max-width: 480px;
-      margin: 0 auto;
-      padding: 20px;
+      margin: 20px auto 0;
       text-align: center;
-      background: #fff;
-      border-radius: 12px;
     }
     .logo {
-      display: block;
-      margin: 0 auto 20px;
       width: 120px;
       height: auto;
+      margin: 0 auto 16px;
+      display: block;
     }
     h1 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      margin: 0 0 8px;
+      line-height: 1.2;
+      font-weight: 700;
     }
     p {
       font-size: 1rem;
-      margin-bottom: 1.5rem;
+      margin: 0 0 24px;
     }
     .store-links {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 20px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 0 20px;
     }
     .store-links a {
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 8px;
       background: #000;
       color: #fff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 480px;
+    }
+    .store-links a .btn-icon {
+      width: 32px;
+      height: auto;
+      margin-right: 12px;
+    }
+    .store-links a .small {
+      display: block;
+      font-size: 0.75rem;
+      line-height: 1;
+      opacity: 0.8;
+    }
+    .store-links a .large {
+      display: block;
+      font-size: 1.25rem;
+      line-height: 1;
       font-weight: 600;
     }
-    .btn-icon {
-      width: 24px;
-      height: auto;
-      margin-right: 10px;
-    }
     @media(min-width: 600px) {
-      .download-container {
-        padding: 40px;
-        max-width: 600px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
       .store-links {
+        position: static;
         flex-direction: row;
+        justify-content: center;
+        padding: 20px 0;
+      }
+      .store-links a {
+        width: auto;
       }
     }
   </style>
