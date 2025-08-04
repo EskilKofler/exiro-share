@@ -112,50 +112,27 @@ module.exports = async function handler(req, res) {
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; height: 100%; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; position: relative; padding-bottom: 80px; }
     .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; text-align: center; }
-    .logo { width: 120px; height: auto; margin: 0 auto 16px; display: block; }
-    h1 { font-size: 2rem; margin: 0 0 16px; line-height: 1.2; font-weight: 800; }
-    .feature-list { list-style: none; padding: 0; margin: 0 0 32px; }
+    .logo { width: 120px; height: auto; margin: 0 auto 24px; display: block; }
+    h1 { font-size: 2rem; margin: 0 0 24px; line-height: 1.2; font-weight: 800; }
+    .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
     .feature-list li { display: flex; align-items: center; margin-bottom: 16px; }
     .feat-icon { width: 32px; height: auto; margin-right: 12px; filter: brightness(0); }
     .feat-content { text-align: left; }
     .feat-title { font-weight: 700; font-size: 0.95rem; color: #333; line-height: 1.2; }
     .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
-    .store-links { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 24px; }
-    .store-links a {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      background: #000;
-      color: #fff;
-      padding: 14px 20px;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 100%;
-    }
-    .btn-icon {
-      width: 36px;
-      height: auto;
-      margin-right: 12px;
-      margin-bottom: 0;
-    }
-    .text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+    .store-links { display: flex; flex-direction: column; align-items: center; gap: 12px; position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 16px; background: #FAFAFA; }
+    .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
+    .btn-icon { width: 36px; height: auto; margin-right: 12px; }
+    .text { display: flex; flex-direction: column; align-items: center; text-align: center; }
     .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
     .large { font-size: 1.375rem; line-height: 1; font-weight: 700; margin-top: 2px; }
     .note { font-size: 0.75rem; color: #666; margin: 0 auto 40px; text-align: center; }
     @media(min-width: 600px) {
-      .store-links { flex-direction: row; justify-content: center; padding: 40px 0; }
+      .store-links { position: static; padding: 0; bottom: auto; background: transparent; flex-direction: row; justify-content: center; margin-top: 24px; }
       .store-links a { width: auto; margin: 0 8px; }
-      .note { margin-bottom: 60px; }
     }
   </style>
 </head>
