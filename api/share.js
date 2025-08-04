@@ -129,10 +129,10 @@ module.exports = async function handler(req, res) {
     .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
     .feature-list li { display: flex; align-items: center; margin-bottom: 16px; }
-    .feat-icon { width: 32px; height: auto; margin-right: 12px; filter: brightness(0); }
+    .feat-icon { width: 40px; height: auto; margin-right: 8px; filter: brightness(0); }
     .feat-content { text-align: left; }
-    .feat-title { font-weight: 700; font-size: 0.95rem; color: #333; line-height: 1.2; }
-    .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
+    .feat-title { font-weight: 700; font-size: 1.1rem; color: #222; line-height: 1.2; }
+    .feat-desc { display: block; font-size: 0.9375rem; color: #666; margin: 4px 0 0; }
     .note { display: none; }
     .store-links {
       display: flex;
