@@ -36,172 +36,17 @@ module.exports = async function handler(req, res) {
     .limit(1)
     .get();
 
-  // **SE NON TROVO NIENTE, RENDERIZZO COMUNQUE IL DOWNLOAD HTML**  
   if (snaps.empty) {
-    // fallback values
-    const title = "Exiro";
-    const desc  = "";
-    const img   = "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
-
-    const downloadHtml = `
-      <div class="download-container">
-        <div class="header">
-          <img src="/img/exiro_icon_site.png" alt="Exiro Logo" class="logo" />
-          <h1 class="title">Exiro</h1>
-        </div>
-        <ul class="feature-list">
-          <li>
-            <div class="feat-row">
-              <img src="/icon/event_note.svg" alt="Create Your Workout Plan" class="feat-icon" />
-              <div class="feat-content">
-                <span class="feat-title">Create Your Workout Plan</span>
-              </div>
-            </div>
-            <small class="feat-desc">Over 2,300 exercises to build any routine, customizing reps, sets, rest times and more.</small>
-          </li>
-          <li>
-            <div class="feat-row">
-              <img src="/icon/psycology.svg" alt="Smart Recommendations" class="feat-icon" />
-              <div class="feat-content">
-                <span class="feat-title">Smart Recommendations</span>
-              </div>
-            </div>
-            <small class="feat-desc">Our algorithm filters the Exiro Marketplace to show only the plans best suited to your goals.</small>
-          </li>
-          <li>
-            <div class="feat-row">
-              <img src="/icon/timer.svg" alt="Live Tracking & Log-Book" class="feat-icon" />
-              <div class="feat-content">
-                <span class="feat-title">Live Tracking & Log-Book</span>
-              </div>
-            </div>
-            <small class="feat-desc">Track kilos, reps and sessions for every program; follow video tutorials and a built-in timer in one screen.</small>
-          </li>
-          <li>
-            <div class="feat-row">
-              <img src="/icon/storefront.svg" alt="Marketplace & Monetization" class="feat-icon" />
-              <div class="feat-content">
-                <span class="feat-title">Marketplace & Monetization</span>
-              </div>
-            </div>
-            <small class="feat-desc">Download, publish and earn real money from your routines thanks to Stripe.</small>
-          </li>
-        </ul>
-        <!-- Nota spostata sopra i pulsanti ma nascosta -->
-        <p class="note">Free on iOS e Android • No card request</p>
-        <div class="store-links">
-          <a href="https://apps.apple.com/it/app/duolingo-language-lessons/id570060128?l=en-GB" target="_blank" rel="noopener">
-            <img src="/img/apple_logo.png" alt="Apple Logo" class="btn-icon" />
-            <div class="text">
-              <span class="small">Download on the</span>
-              <span class="large">App Store</span>
-            </div>
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.duolingo" target="_blank" rel="noopener">
-            <img src="/img/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
-            <div class="text">
-              <span class="small">Get it on</span>
-              <span class="large">Google Play</span>
-            </div>
-          </a>
-        </div>
-      </div>`;
-
-    const html = `<!DOCTYPE html>
-  <html lang="it">
-  <head>
-    <!-- Favicon per Vercel e browser -->
-    <link rel="icon" type="image/png" href="/img/exiro_logo_transparent.png" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${title}</title>
-
-    <!-- Open Graph -->
-    <meta property="og:title"       content="${title}" />
-    <meta property="og:description" content="${desc}" />
-    <meta property="og:image"       content="${img}" />
-    <meta property="og:url"         content="${(req.headers['x-forwarded-proto']||'https')}://${req.get('host')}${req.originalUrl}" />
-    <meta property="og:site_name"   content="Exiro" />
-    <meta property="og:type"        content="website" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card"       content="summary_large_image" />
-    <meta name="twitter:title"      content="${title}" />
-    <meta name="twitter:description"content="${desc}" />
-    <meta name="twitter:image"      content="${img}" />
-
-    <!-- Apple Smart App Banner -->
-    <meta name="apple-itunes-app"   content="app-id=TUO_APP_ID" />
-
-    <style>
-      *, *::before, *::after { box-sizing: border-box; }
-      html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; height: 100%; }
-      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; position: relative; padding-bottom: 80px; }
-      .download-container { width: 100%; max-width: 480px; margin: 0 auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
-      .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 32px; }
-      .logo {
-        width: 120px;
-        height: auto;
-        margin-top: 36px;   /* 36px sopra l’immagine */
-        margin-bottom: 16px; /* 16px tra immagine e titolo */
-        border-radius: 20%;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      }
-      .title { 
-        font-size: 2rem; 
-        margin: 0 0 0px;
-        line-height: 1.2; 
-        font-weight: 800; 
-        text-align: center; 
-        color: #000; 
-      }
-      .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
-      .feature-list li { display: flex; flex-direction: column; margin-bottom: 16px; }
-      .feat-row { display: flex; align-items: center; }
-      .feat-icon { width: 30px; height: auto; margin-right: 8px; filter: brightness(0); }
-      .feat-content { flex: 1; }
-      .feat-title { font-weight: 700; font-size: 1.1rem; color: #222; line-height: 1.2; }
-      .feat-desc { display: block; font-size: 0.9375rem; color: #666; margin: 4px 0 0 0; /* allinea sotto l'icona */ }
-      .note { display: none; }
-      .store-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 12px 16px 16px;
-        background: #FAFAFA;
-        box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
-      }
-      .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
-      .btn-icon { width: 36px; height: auto; margin-right: 12px; }
-      .text { display: flex; flex-direction: column; align-items: center; text-align: center; }
-      .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
-      .large { font-size: 1.375rem; line-height: 1; font-weight: 700; margin-top: 2px; }
-      @media(min-width: 600px) {
-        .store-links { position: static; padding: 0; bottom: auto; background: transparent; flex-direction: row; justify-content: center; margin-top: 24px; box-shadow: none; }
-        .store-links a { width: auto; margin: 0 8px; }
-      }
-    </style>
-  </head>
-  <body>
-    ${downloadHtml}
-  </body>
-  </html>`;
-
-    res.setHeader("Content-Type", "text/html");
-    return res.status(200).send(html);
+    // res.status(404).send("Program not found");
+    // return;
   }
 
-  // Se il programma esiste, procedo come prima
-  const doc = snaps.docs[0];
+  // Se non trova nulla, doc.data() sarà {} e useremo i default qui sotto
+  const doc = snaps.empty ? { data: () => ({}) } : snaps.docs[0];
   const data = doc.data();
-  const title = data.title       || "Exiro";
+  const title = data.title || "Exiro";
   const desc  = data.description || "";
-  const img   = data.photo_url   ||
+  const img   = data.photo_url ||
     "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
 
   // Fallback HTML: lista verticale di feature + pulsanti + nota
