@@ -42,16 +42,16 @@ module.exports = async function handler(req, res) {
   // Fallback HTML: mostra sempre la pagina di download personalizzata
   const downloadHtml = `
     <div class="download-container">
-      <img src="/app_icon_light.png" alt="Exiro Logo" class="logo" />
+      <img src="/img/app_icon_light.png" alt="Exiro Logo" class="logo" />
       <h1>Potenzia il tuo allenamento con Exiro</h1>
       <p>Scarica l’app per vivere l’esperienza completa:</p>
       <div class="store-links">
         <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
-          <img src="/apple_logo.png" alt="Apple Logo" class="btn-icon" />
+          <img src="/img/apple_logo.png" alt="Apple Logo" class="btn-icon" />
           <span>Download on App Store</span>
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">
-          <img src="/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
+          <img src="/img/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
           <span>Get it on Google Play</span>
         </a>
       </div>
