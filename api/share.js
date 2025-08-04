@@ -43,7 +43,7 @@ module.exports = async function handler(req, res) {
   const downloadHtml = `
     <div class="download-container">
       <div class="header">
-        <img src="/img/exiro_logo_site.png" alt="Exiro Logo" class="logo" />
+        <img src="/img/exiro_icon_site.png" alt="Exiro Logo" class="logo" />
         <h1 class="title">Download Exiro</h1>
       </div>
       <ul class="feature-list">
@@ -101,7 +101,7 @@ module.exports = async function handler(req, res) {
 <html lang="it">
 <head>
   <!-- Favicon per Vercel e browser -->
-  <link rel="icon" type="image/png" href="/img/exiro_logo_site.png" />
+  <link rel="icon" type="image/png" href="/img/exiro_icon_site.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
