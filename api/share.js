@@ -120,12 +120,11 @@ module.exports = async function handler(req, res) {
     .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
     .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 32px; }
     .logo {
-      width: 120px;              /* un po' più grande */
+      width: 120px;                  /* un po' più grande */
       height: auto;
-      margin-bottom: 20px;       /* distanza maggiore dal titolo */
-      padding: 20%;              /* spazio interno per distanziare l'ombra */
-      background-color: transparent;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);  /* ombra delicata sui bordi */
+      margin-bottom: 20px;           /* distanza maggiore dal titolo */
+      border-radius: 20%;            /* mantiene gli angoli arrotondati al 20% */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* ombra delicata sui bordi arrotondati */
     }
     .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
