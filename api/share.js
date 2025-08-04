@@ -39,28 +39,43 @@ module.exports = async function handler(req, res) {
   const img   = data.photo_url ||
     "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
 
-  // Fallback HTML: mostra sempre la pagina di download personalizzata
+  // Fallback HTML: mini-landing con feature prima del download
   const downloadHtml = `
-    <div class="download-container">
-      <img src="/img/exiro_logo_transparent.png" alt="Exiro Logo" class="logo" />
-      <h1>Potenzia il tuo allenamento con Exiro</h1>
-      <p>Scarica l’app per vivere l’esperienza completa</p>
+    <div class="hero">
+      <img src="/img/app_screenshot.png" alt="App Screenshot" class="screenshot" />
     </div>
-    <div class="store-links">
-      <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
-        <img src="/img/apple_logo.png" alt="Apple Logo" class="btn-icon" />
-        <div class="text">
-          <span class="small">Download on the</span>
-          <span class="large">App Store</span>
-        </div>
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">
-        <img src="/img/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
-        <div class="text">
-          <span class="small">Get it on</span>
-          <span class="large">Google Play</span>
-        </div>
-      </a>
+    <div class="intro">
+      <h1>Exiro: allenamenti senza distrazioni</h1>
+      <p>Il tuo training, esattamente come lo vuoi – sempre a portata di mano.</p>
+    </div>
+    <div class="features">
+      <div class="feat">
+        <img src="/img/icon-custom.png" alt="Custom Workouts" />
+        <h3>Custom Workouts</h3>
+        <p>Scegli livello, tempo e attrezzi.</p>
+      </div>
+      <div class="feat">
+        <img src="/img/icon-track.png" alt="Tracking Automatico" />
+        <h3>Tracking Automatico</h3>
+        <p>Peso, rip e tempo registrati.</p>
+      </div>
+      <div class="feat">
+        <img src="/img/icon-offline.png" alt="Modalità Offline" />
+        <h3>Modalità Offline</h3>
+        <p>Allenati ovunque senza rete.</p>
+      </div>
+      <div class="feat">
+        <img src="/img/icon-market.png" alt="Marketplace" />
+        <h3>Marketplace Integrato</h3>
+        <p>Pubblica e monetizza programmi.</p>
+      </div>
+    </div>
+    <div class="social-proof">
+      <span>⭐️⭐️⭐️⭐️⭐️ (4.8) • 10K+ valutazioni</span>
+    </div>
+    <div class="cta">
+      <a href="#download" class="btn-main">Scarica Exiro</a>
+      <p class="note">Gratis su iOS e Android • Nessuna carta richiesta</p>
     </div>`;
 
   // HTML completo con logo e design responsive
@@ -81,102 +96,26 @@ module.exports = async function handler(req, res) {
   <meta name="twitter:card"       content="summary_large_image" />
 
   <style>
-    /* Use border-box to prevent overflow */
     *, *::before, *::after { box-sizing: border-box; }
-    /* Impedisce overflow orizzontale */
-    html, body { overflow-x: hidden; width: 100%; }
-
-    /* Impedisce overflow orizzontale */
-    html, body { overflow-x: hidden; }
-
-    /* Mantieni proporzioni immagini */
-    img { max-width: 100%; height: auto; }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: #FAFAFA;
-      color: #333;
-    }
-    .download-container {
-      width: 100%;
-      max-width: 480px;
-      margin: 40px auto 0;
-      padding: 0 16px;
-      text-align: center;
-    }
-    .logo {
-      width: 140px;
-      height: auto;
-      margin: 0 auto 24px;
-      display: block;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin: 0 0 12px;
-      line-height: 1.2;
-      font-weight: 800;
-    }
-    p {
-      font-size: 1.125rem;
-      margin: 0 0 32px;
-    }
-    .store-links {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      padding: 0 20px;
-      width: 100%;
-    }
-    .store-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      background: #000;
-      color: #fff;
-      padding: 14px 20px;
-      border-radius: 8px;
-      width: 100%;
-      max-width: calc(100% - 40px);
-    }
-    .btn-icon {
-      width: 36px;
-      height: auto;
-      margin-right: 14px;
-    }
-    .text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .small {
-      font-size: 0.75rem;
-      line-height: 1;
-      opacity: 0.85;
-    }
-    .large {
-      font-size: 1.375rem;
-      line-height: 1;
-      font-weight: 700;
-    }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; }
+    .hero { text-align: center; padding: 20px 0; }
+    .screenshot { max-width: 90%; height: auto; border-radius: 12px; }
+    .intro { text-align: center; padding: 0 16px; }
+    .intro h1 { font-size: 2rem; margin: 16px 0 8px; }
+    .intro p { font-size: 1rem; margin: 0 0 24px; }
+    .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 0 16px; }
+    .feat { width: calc(50% - 20px); text-align: center; }
+    .feat img { width: 48px; height: 48px; margin-bottom: 8px; }
+    .feat h3 { font-size: 1.125rem; margin: 4px 0; }
+    .feat p { font-size: 0.875rem; margin: 0; }
+    .social-proof { text-align: center; font-size: 0.875rem; margin: 24px 0; color: #666; }
+    .cta { text-align: center; padding: 0 16px 40px; }
+    .btn-main { display: inline-block; background: #FF5500; color: #fff; text-decoration: none; font-weight: bold; font-size: 1rem; padding: 12px 24px; border-radius: 8px; }
+    .note { font-size: 0.75rem; color: #666; margin-top: 8px; }
     @media(min-width: 600px) {
-      .store-links {
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        padding: 40px 0;
-      }
-      .store-links a {
-        width: auto;
-        margin: 0 8px;
-      }
+      .feat { width: calc(25% - 20px); }
+      .intro h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
