@@ -39,12 +39,11 @@ module.exports = async function handler(req, res) {
   const img   = data.photo_url ||
     "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
 
-  // Fallback HTML: mostra sempre la pagina di download personalizzata
+  // Fallback HTML: lista verticale di feature + pulsanti + nota
   const downloadHtml = `
     <div class="download-container">
       <img src="/img/exiro_logo_transparent.png" alt="Exiro Logo" class="logo" />
       <h1>Passa al livello superiore con Exiro</h1>
-      <p>Scarica l’app per vivere l’esperienza completa</p>
       <ul class="feature-list">
         <li>
           <img src="/icon/bolt.svg" alt="Custom Workouts" class="feat-icon" />
@@ -118,10 +117,9 @@ module.exports = async function handler(req, res) {
     .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; text-align: center; }
     .logo { width: 140px; height: auto; margin: 0 auto 24px; display: block; }
     h1 { font-size: 2.5rem; margin: 0 0 24px; line-height: 1.2; font-weight: 800; }
-    p { font-size: 1.125rem; margin: 0 0 16px; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 32px; }
     .feature-list li { display: flex; align-items: flex-start; margin-bottom: 16px; }
-    .feat-icon { width: 36px; height: auto; margin-right: 12px; fill: #000; }
+    .feat-icon { width: 36px; height: auto; margin-right: 12px; filter: brightness(0); }
     .feat-content { text-align: left; }
     .feat-title { font-weight: 700; font-size: 1rem; color: #333; }
     .feat-desc { font-size: 0.875rem; color: #666; margin: 2px 0 0; }
