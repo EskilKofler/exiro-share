@@ -130,18 +130,18 @@ module.exports = async function handler(req, res) {
     .logo {
       width: 120px;
       height: auto;
-      margin-bottom: 20px;
+      margin-bottom: 10px; /* ridotto lo spazio superiore */
       border-radius: 20%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; }
+    .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; color: #000; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
     .feature-list li { display: flex; flex-direction: column; margin-bottom: 16px; }
     .feat-row { display: flex; align-items: center; }
     .feat-icon { width: 40px; height: auto; margin-right: 8px; filter: brightness(0); }
     .feat-content { flex: 1; }
     .feat-title { font-weight: 700; font-size: 1.1rem; color: #222; line-height: 1.2; }
-    .feat-desc { display: block; font-size: 0.9375rem; color: #666; margin: 4px 0 0 48px; }
+    .feat-desc { display: block; font-size: 0.9375rem; color: #666; margin: 4px 0 0 0; /* allinea sotto l'icona */ }
     .note { display: none; }
     .store-links {
       display: flex;
