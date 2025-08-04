@@ -39,19 +39,25 @@ module.exports = async function handler(req, res) {
   const img   = data.photo_url ||
     "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
 
-  // Fallback HTML: mostra sempre la pagina di download
+  // Fallback HTML: mostra sempre la pagina di download personalizzata
   const downloadHtml = `
     <div class="download-container">
       <img src="/app_icon_light.png" alt="Exiro Logo" class="logo" />
       <h1>Potenzia il tuo allenamento con Exiro</h1>
       <p>Scarica l’app per vivere l’esperienza completa:</p>
       <div class="store-links">
-        <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">Play Store</a>
+        <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
+          <img src="/apple_logo.png" alt="Apple Logo" class="btn-icon" />
+          <span>Download on App Store</span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">
+          <img src="/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
+          <span>Get it on Google Play</span>
+        </a>
       </div>
     </div>`;
 
-  // HTML completo con logo e responsive design
+  // HTML completo con logo e design responsive
   const html = `<!DOCTYPE html>
 <html lang="it">
 <head>
@@ -67,16 +73,71 @@ module.exports = async function handler(req, res) {
   <meta name="twitter:card"       content="summary_large_image" />
 
   <style>
-    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#333; display:flex; align-items:center; justify-content:center; height:100vh; background:#f9f9f9; }
-    .download-container { max-width:480px; margin:0 auto; padding:20px; text-align:center; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-    .logo { max-width:120px; margin:0 auto 20px; display:block; }
-    h1 { font-size:1.5rem; margin-bottom:0.5rem; }
-    p { font-size:1rem; margin-bottom:1rem; }
-    .store-links { display:flex; justify-content:center; gap:10px; }
-    .store-links a { text-decoration:none; padding:10px 15px; border-radius:8px; background:#007AFF; color:#fff; font-weight:500; }
-    @media(min-width:600px) {
-      .download-container { max-width:600px; }
-      h1 { font-size:2rem; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f9f9f9;
+    }
+    .download-container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .logo {
+      max-width: 120px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .store-links {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .store-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: #000;
+      color: #fff;
+      font-weight: 600;
+    }
+    .btn-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+    @media(min-width: 600px) {
+      .download-container {
+        max-width: 600px;
+        padding: 40px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .store-links {
+        flex-direction: row;
+      }
     }
   </style>
 </head>
