@@ -126,7 +126,7 @@ module.exports = async function handler(req, res) {
     .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
     /* Spazio aggiuntivo sotto la nota */
     .note { font-size: 0.75rem; color: #666; margin: 0 auto 0px; text-align: center; }
-    .store-links { display: flex; flex-direction: column; align-items: center; gap: 6px; position: fixed; left: 0; right: 0; bottom: 0; padding: 6px 16px; background: #FAFAFA; }
+    .store-links { display: flex; flex-direction: column; align-items: center; gap: 0px; position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 16px; background: #FAFAFA; }
     .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
     .btn-icon { width: 36px; height: auto; margin-right: 12px; }
     .text { display: flex; flex-direction: column; align-items: center; text-align: center; }
