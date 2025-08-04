@@ -39,16 +39,39 @@ module.exports = async function handler(req, res) {
   const img   = data.photo_url ||
     "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
 
-  // Fallback HTML: lista verticale di feature + pulsanti + nota
+  // Fallback HTML: lista verticale di feature + pulsanti
   const downloadHtml = `
-    <div class="download-container">
-      <img src="/img/exiro_logo_transparent.png" alt="Exiro Logo" class="logo" />
-      <h1>Passa al livello superiore con Exiro</h1>
+    <div class=$&
+<!-- Feature List con icone, titolo e descrizione -->
       <ul class="feature-list">
-        <li><img src="/img/icon-custom.png" alt="Custom Workouts" class="feat-icon" /><span>Custom Workouts</span></li>
-        <li><img src="/img/icon-track.png" alt="Tracking Automatico" class="feat-icon" /><span>Tracking Automatico</span></li>
-        <li><img src="/img/icon-offline.png" alt="Modalità Offline" class="feat-icon" /><span>Modalità Offline</span></li>
-        <li><img src="/img/icon-market.png" alt="Marketplace Integrato" class="feat-icon" /><span>Marketplace Integrato</span></li>
+        <li>
+          <img src="/icon/bolt.svg" alt="Custom Workouts" class="feat-icon" />
+          <div class="feat-content">
+            <span class="feat-title">Custom Workouts</span>
+            <small class="feat-desc">Scegli livello, tempo e attrezzi</small>
+          </div>
+        </li>
+        <li>
+          <img src="/icon/person.svg" alt="Tracking Automatico" class="feat-icon" />
+          <div class="feat-content">
+            <span class="feat-title">Tracking Automatico</span>
+            <small class="feat-desc">Peso, ripetizioni e tempo sempre registrati</small>
+          </div>
+        </li>
+        <li>
+          <img src="/icon/wifi_off.svg" alt="Modalità Offline" class="feat-icon" />
+          <div class="feat-content">
+            <span class="feat-title">Modalità Offline</span>
+            <small class="feat-desc">Allenati ovunque, senza connessione</small>
+          </div>
+        </li>
+        <li>
+          <img src="/icon/store.svg" alt="Marketplace Integrato" class="feat-icon" />
+          <div class="feat-content">
+            <span class="feat-title">Marketplace Integrato</span>
+            <small class="feat-desc">Crea, condividi e monetizza i tuoi programmi</small>
+          </div>
+        </li>
       </ul>
       <div class="store-links">
         <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
@@ -96,17 +119,16 @@ module.exports = async function handler(req, res) {
     .feature-list { list-style: none; padding: 0; margin: 0 0 32px; }
     .feature-list li { display: flex; align-items: center; margin-bottom: 16px; }
     .feat-icon { width: 32px; height: auto; margin-right: 12px; }
-    .store-links { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .store-links { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .store-links a { display: flex; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 8px; width: 100%; max-width: 100%; }
     .btn-icon { width: 36px; height: auto; margin-right: 14px; }
     .text { display: flex; flex-direction: column; align-items: flex-start; }
     .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
     .large { font-size: 1.375rem; line-height: 1; font-weight: 700; }
-    .note { font-size: 0.75rem; color: #666; margin: 0 auto 40px; }
+    .note { font-size: 0.75rem; color: #666; margin-top: 24px; }
     @media(min-width: 600px) {
       .store-links { flex-direction: row; justify-content: center; padding: 40px 0; }
       .store-links a { width: auto; margin: 0 8px; }
-      .note { margin-bottom: 60px; }
     }
   </style>
 </head>
