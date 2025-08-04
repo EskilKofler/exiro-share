@@ -74,6 +74,8 @@ module.exports = async function handler(req, res) {
           </div>
         </li>
       </ul>
+      <!-- Nota spostata sopra i pulsanti con spazio aggiuntivo -->
+      <p class="note">Free on iOS e Android • No card request</p>
       <div class="store-links">
         <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
           <img src="/img/apple_logo.png" alt="Apple Logo" class="btn-icon" />
@@ -90,7 +92,6 @@ module.exports = async function handler(req, res) {
           </div>
         </a>
       </div>
-      <p class="note">Free on iOS e Android • No card request</p>
     </div>`;
 
   // HTML completo con logo e design responsive
@@ -123,23 +124,16 @@ module.exports = async function handler(req, res) {
     .feat-content { text-align: left; }
     .feat-title { font-weight: 700; font-size: 0.95rem; color: #333; line-height: 1.2; }
     .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
+    /* Spazio aggiuntivo sotto la nota */
+    .note { font-size: 0.75rem; color: #666; margin: 0 auto 24px; text-align: center; }
     .store-links { display: flex; flex-direction: column; align-items: center; gap: 12px; position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 16px; background: #FAFAFA; }
     .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
     .btn-icon { width: 36px; height: auto; margin-right: 12px; }
     .text { display: flex; flex-direction: column; align-items: center; text-align: center; }
     .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
     .large { font-size: 1.375rem; line-height: 1; font-weight: 700; margin-top: 2px; }
-    .note {
-      font-size: 0.75rem;
-      color: #666;
-      margin: 8px auto 0; /* più vicina al pulsante su mobile */
-      text-align: center;
-    }
     @media(min-width: 600px) {
       .store-links { position: static; padding: 0; bottom: auto; background: transparent; flex-direction: row; justify-content: center; margin-top: 24px; }
-      .store-links a { width: auto; margin: 0 8px; }
-      .note { margin: 0 auto 80px; /* più spazio su desktop */ }
-    }
       .store-links a { width: auto; margin: 0 8px; }
     }
   </style>
