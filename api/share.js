@@ -115,16 +115,16 @@ module.exports = async function handler(req, res) {
     html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; }
     .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; text-align: center; }
-    .logo { width: 140px; height: auto; margin: 0 auto 24px; display: block; }
-    h1 { font-size: 2.5rem; margin: 0 0 24px; line-height: 1.2; font-weight: 800; }
+    .logo { width: 120px; height: auto; margin: 0 auto 16px; display: block; }
+    h1 { font-size: 2rem; margin: 0 0 16px; line-height: 1.2; font-weight: 800; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 32px; }
     .feature-list li { display: flex; align-items: flex-start; margin-bottom: 16px; }
-    .feat-icon { width: 36px; height: auto; margin-right: 12px; filter: brightness(0); }
+    .feat-icon { width: 32px; height: auto; margin-right: 12px; filter: brightness(0); margin-top: 4px; }
     .feat-content { text-align: left; }
-    .feat-title { font-weight: 700; font-size: 1rem; color: #333; }
-    .feat-desc { font-size: 0.875rem; color: #666; margin: 2px 0 0; }
+    .feat-title { font-weight: 700; font-size: 0.95rem; color: #333; line-height: 1.2; }
+    .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
     .store-links { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 24px; }
-    .store-links a { display: flex; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 8px; width: 100%; max-width: 100%; }
+    .store-links a { display: flex; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border_radius: 8px; width: 100%; max-width: 100%; }
     .btn-icon { width: 36px; height: auto; margin-right: 14px; }
     .text { display: flex; flex-direction: column; align-items: flex-start; }
     .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
