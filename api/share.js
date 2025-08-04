@@ -39,36 +39,37 @@ module.exports = async function handler(req, res) {
   const img   = data.photo_url ||
     "https://firebasestorage.googleapis.com/v0/b/ekoach.firebasestorage.app/o/program_images%2Fapp_icon_light_256.png?alt=media";
 
-  // Fallback HTML: lista verticale di feature + pulsanti
+  // Fallback HTML: lista verticale di feature + pulsanti + nota
   const downloadHtml = `
-    <div class=$&
-<!-- Feature List con icone, titolo e descrizione -->
+    <div class="download-container">
+      <img src="/img/exiro_logo_transparent.png" alt="Exiro Logo" class="logo" />
+      <h1>Passa al livello superiore con Exiro</h1>
       <ul class="feature-list">
         <li>
           <img src="/icon/bolt.svg" alt="Custom Workouts" class="feat-icon" />
           <div class="feat-content">
-            <span class="feat-title">Custom Workouts</span>
+            <span class="feat-title">Custom Workouts</span><br>
             <small class="feat-desc">Scegli livello, tempo e attrezzi</small>
           </div>
         </li>
         <li>
           <img src="/icon/person.svg" alt="Tracking Automatico" class="feat-icon" />
           <div class="feat-content">
-            <span class="feat-title">Tracking Automatico</span>
+            <span class="feat-title">Tracking Automatico</span><br>
             <small class="feat-desc">Peso, ripetizioni e tempo sempre registrati</small>
           </div>
         </li>
         <li>
           <img src="/icon/wifi_off.svg" alt="Modalità Offline" class="feat-icon" />
           <div class="feat-content">
-            <span class="feat-title">Modalità Offline</span>
+            <span class="feat-title">Modalità Offline</span><br>
             <small class="feat-desc">Allenati ovunque, senza connessione</small>
           </div>
         </li>
         <li>
           <img src="/icon/store.svg" alt="Marketplace Integrato" class="feat-icon" />
           <div class="feat-content">
-            <span class="feat-title">Marketplace Integrato</span>
+            <span class="feat-title">Marketplace Integrato</span><br>
             <small class="feat-desc">Crea, condividi e monetizza i tuoi programmi</small>
           </div>
         </li>
@@ -117,18 +118,22 @@ module.exports = async function handler(req, res) {
     .logo { width: 140px; height: auto; margin: 0 auto 24px; display: block; }
     h1 { font-size: 2.5rem; margin: 0 0 24px; line-height: 1.2; font-weight: 800; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 32px; }
-    .feature-list li { display: flex; align-items: center; margin-bottom: 16px; }
-    .feat-icon { width: 32px; height: auto; margin-right: 12px; }
-    .store-links { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .feature-list li { display: flex; align-items: flex-start; margin-bottom: 16px; }
+    .feat-icon { width: 36px; height: auto; margin-right: 12px; margin-top: 2px; }
+    .feat-content { text-align: left; }
+    .feat-title { font-weight: 700; font-size: 1rem; color: #333; display: block; }
+    .feat-desc { font-size: 0.875rem; color: #666; margin: 4px 0 0; }
+    .store-links { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 24px; }
     .store-links a { display: flex; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 8px; width: 100%; max-width: 100%; }
     .btn-icon { width: 36px; height: auto; margin-right: 14px; }
     .text { display: flex; flex-direction: column; align-items: flex-start; }
     .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
     .large { font-size: 1.375rem; line-height: 1; font-weight: 700; }
-    .note { font-size: 0.75rem; color: #666; margin-top: 24px; }
+    .note { font-size: 0.75rem; color: #666; margin: 0 auto 40px; text-align: center; }
     @media(min-width: 600px) {
       .store-links { flex-direction: row; justify-content: center; padding: 40px 0; }
       .store-links a { width: auto; margin: 0 8px; }
+      .note { margin-bottom: 60px; }
     }
   </style>
 </head>
