@@ -80,7 +80,7 @@ module.exports = async function handler(req, res) {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       color: #333;
-      background: #f9f9f9;
+      background: #FAFAFA; /* Colore di sfondo aggiornato */
       padding-top: 20px;
     }
     .download-container {
@@ -90,8 +90,6 @@ module.exports = async function handler(req, res) {
       padding: 20px;
       text-align: center;
       background: #fff;
-      /* Rimosso box-shadow per uno stile più pulito */
-      /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
       border-radius: 12px;
     }
     .logo {
