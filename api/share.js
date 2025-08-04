@@ -43,7 +43,7 @@ module.exports = async function handler(req, res) {
   const downloadHtml = `
     <div class="download-container">
       <div class="header">
-        <img src="/img/exiro_logo_site.png" alt="Exiro Logo" class="logo" />
+        <img src="/img/exiro_icon_site.png" alt="Exiro Logo" class="logo" />
         <h1 class="title">Download Exiro</h1>
       </div>
       <ul class="feature-list">
@@ -101,7 +101,7 @@ module.exports = async function handler(req, res) {
 <html lang="it">
 <head>
   <!-- Favicon per Vercel e browser -->
-  <link rel="icon" type="image/png" href="/img/exiro_logo_site.png" />
+  <link rel="icon" type="image/png" href="/img/exiro_icon_site.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
@@ -117,72 +117,24 @@ module.exports = async function handler(req, res) {
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; height: 100%; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; position: relative; padding-bottom: 80px; }
-
-    .download-container {
-      width: 100%;
-      max-width: 480px;
-      margin: 40px auto 0;
-      padding: 20px;                    /* 20px padding generico */
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      background: #fff;                 /* sfondo bianco per l'ombra più definita */
-      border-radius: 20%;               /* angoli arrotondati al 20% */
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* ombra su tutto il container */
-    }
-
-    .header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 32px;
-    }
+    .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
+    .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 32px; }
     .logo {
-      width: 120px;
+      width: 120px;              /* un po' più grande */
       height: auto;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 20px;       /* distanza maggiore dal titolo */
+      padding: 20%;              /* spazio interno per distanziare l'ombra */
+      background-color: transparent;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);  /* ombra delicata sui bordi */
     }
-    .title {
-      font-size: 2rem;
-      margin: 0;
-      line-height: 1.2;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 40px;
-    }
-    .feature-list li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .feat-icon {
-      width: 32px;
-      height: auto;
-      margin-right: 12px;
-      filter: brightness(0);
-    }
+    .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; }
+    .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
+    .feature-list li { display: flex; align-items: center; margin-bottom: 16px; }
+    .feat-icon { width: 32px; height: auto; margin-right: 12px; filter: brightness(0); }
     .feat-content { text-align: left; }
-    .feat-title {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #333;
-      line-height: 1.2;
-    }
-    .feat-desc {
-      display: block;
-      font-size: 0.875rem;
-      color: #666;
-      margin: 4px 0 0;
-    }
-
+    .feat-title { font-weight: 700; font-size: 0.95rem; color: #333; line-height: 1.2; }
+    .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
     .note { display: none; }
-
     .store-links {
       display: flex;
       flex-direction: column;
@@ -194,64 +146,16 @@ module.exports = async function handler(req, res) {
       bottom: 0;
       padding: 12px 16px 16px; /* 12px top spacer */
       background: #FAFAFA;
+      box-shadow: 0 -4px 8px rgba(0,0,0,0.1); /* leggera ombra sopra i pulsanti su mobile */
     }
-    .store-links a {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      background: #000;
-      color: #fff;
-      padding: 14px 20px;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 480px;
-    }
-    .btn-icon {
-      width: 36px;
-      height: auto;
-      margin-right: 12px;
-    }
-    .text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .small {
-      font-size: 0.75rem;
-      line-height: 1;
-      opacity: 0.85;
-    }
-    .large {
-      font-size: 1.375rem;
-      line-height: 1;
-      font-weight: 700;
-      margin-top: 2px;
-    }
-
+    .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
+    .btn-icon { width: 36px; height: auto; margin-right: 12px; }
+    .text { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
+    .large { font-size: 1.375rem; line-height: 1; font-weight: 700; margin-top: 2px; }
     @media(min-width: 600px) {
-      .store-links {
-        position: static;
-        padding: 0;
-        bottom: auto;
-        background: transparent;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 24px;
-        box-shadow: none;  /* niente ombra desktop */
-      }
-      .store-links a {
-        width: auto;
-        margin: 0 8px;
-      }
-    }
-
-    @media(max-width: 599px) {
-      .store-links {
-        box-shadow: 0 -4px 12px rgba(0,0,0,0.1); /* ombra leggera sopra i pulsanti solo mobile */
-      }
+      .store-links { position: static; padding: 0; bottom: auto; background: transparent; flex-direction: row; justify-content: center; margin-top: 24px; box-shadow: none; }
+      .store-links a { width: auto; margin: 0 8px; }
     }
   </style>
 </head>
