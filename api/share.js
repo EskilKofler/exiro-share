@@ -74,7 +74,7 @@ module.exports = async function handler(req, res) {
           </div>
         </li>
       </ul>
-      <!-- Nota spostata sopra i pulsanti con spazio ridotto -->
+      <!-- Nota spostata sopra i pulsanti ma nascosta -->
       <p class="note">Free on iOS e Android • No card request</p>
       <div class="store-links">
         <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
@@ -124,8 +124,8 @@ module.exports = async function handler(req, res) {
     .feat-content { text-align: left; }
     .feat-title { font-weight: 700; font-size: 0.95rem; color: #333; line-height: 1.2; }
     .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
-    /* Spazio ridotto sotto la nota: 10px */
-    .note { font-size: 0.75rem; color: #666; margin: 0 auto 10px; text-align: center; }
+    /* Nasconde completamente la scritta */
+    .note { display: none; }
     .store-links { display: flex; flex-direction: column; align-items: center; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; padding: 0px 16px; background: #FAFAFA; }
     .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
     .btn-icon { width: 36px; height: auto; margin-right: 12px; }
