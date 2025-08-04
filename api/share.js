@@ -73,29 +73,32 @@ module.exports = async function handler(req, res) {
   <meta name="twitter:card"       content="summary_large_image" />
 
   <style>
+    /* Mantieni proporzioni originali */
+    img { max-width: 100%; height: auto; }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       color: #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       background: #f9f9f9;
+      padding-top: 20px;
     }
     .download-container {
+      width: 90%;
       max-width: 480px;
       margin: 0 auto;
       padding: 20px;
       text-align: center;
       background: #fff;
+      /* Rimosso box-shadow per uno stile più pulito */
+      /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .logo {
-      max-width: 120px;
-      margin: 0 auto 20px;
       display: block;
+      margin: 0 auto 20px;
+      width: 120px;
+      height: auto;
     }
     h1 {
       font-size: 1.5rem;
@@ -108,7 +111,6 @@ module.exports = async function handler(req, res) {
     .store-links {
       display: flex;
       flex-direction: column;
-      align-items: stretch;
       gap: 10px;
     }
     .store-links a {
@@ -124,13 +126,13 @@ module.exports = async function handler(req, res) {
     }
     .btn-icon {
       width: 24px;
-      height: 24px;
+      height: auto;
       margin-right: 10px;
     }
     @media(min-width: 600px) {
       .download-container {
-        max-width: 600px;
         padding: 40px;
+        max-width: 600px;
       }
       h1 {
         font-size: 2rem;
