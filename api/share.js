@@ -135,7 +135,7 @@ module.exports = async function handler(req, res) {
     }
     .title { 
       font-size: 2rem; 
-      margin: 0 0 24px; /* 24px sotto il titolo */ 
+      margin: 0 0 0px;
       line-height: 1.2; 
       font-weight: 800; 
       text-align: center; 
