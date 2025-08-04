@@ -123,16 +123,24 @@ module.exports = async function handler(req, res) {
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; height: 100%; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; position: relative; padding-bottom: 80px; }
-    .download-container { width: 100%; max-width: 480px; margin: 12px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
+    .download-container { width: 100%; max-width: 480px; margin: 0 auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
     .header { display: flex; flex-direction: column; align-items: center; margin-bottom: 32px; }
     .logo {
       width: 120px;
       height: auto;
-      margin-bottom: 20px; /* aumentato spazio sotto l'immagine */
+      margin-top: 36px;   /* 36px sopra l’immagine */
+      margin-bottom: 16px; /* 16px tra immagine e titolo */
       border-radius: 20%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: center; color: #000; }
+    .title { 
+      font-size: 2rem; 
+      margin: 0 0 24px; /* 24px sotto il titolo */ 
+      line-height: 1.2; 
+      font-weight: 800; 
+      text-align: center; 
+      color: #000; 
+    }
     .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
     .feature-list li { display: flex; flex-direction: column; margin-bottom: 16px; }
     .feat-row { display: flex; align-items: center; }
