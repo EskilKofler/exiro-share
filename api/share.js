@@ -49,13 +49,17 @@ module.exports = async function handler(req, res) {
     <div class="store-links">
       <a href="https://apps.apple.com/app/idYOUR_IOS_APP_ID" target="_blank" rel="noopener">
         <img src="/img/apple_logo.png" alt="Apple Logo" class="btn-icon" />
-        <span class="small">Download on the</span>
-        <span class="large">App Store</span>
+        <div class="text">
+          <span class="small">Download on the</span>
+          <span class="large">App Store</span>
+        </div>
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.exiro.app" target="_blank" rel="noopener">
         <img src="/img/play_store_logo.png" alt="Play Store Logo" class="btn-icon" />
-        <span class="small">Get it on</span>
-        <span class="large">Google Play</span>
+        <div class="text">
+          <span class="small">Get it on</span>
+          <span class="large">Google Play</span>
+        </div>
       </a>
     </div>`;
 
@@ -90,24 +94,25 @@ module.exports = async function handler(req, res) {
     .download-container {
       width: 100%;
       max-width: 480px;
-      margin: 20px auto 0;
+      margin: 40px auto 0;
+      padding: 0 16px;
       text-align: center;
     }
     .logo {
-      width: 120px;
+      width: 140px;
       height: auto;
-      margin: 0 auto 16px;
+      margin: 0 auto 24px;
       display: block;
     }
     h1 {
-      font-size: 2rem;
-      margin: 0 0 8px;
+      font-size: 2.5rem;
+      margin: 0 0 12px;
       line-height: 1.2;
-      font-weight: 700;
+      font-weight: 800;
     }
     p {
-      font-size: 1rem;
-      margin: 0 0 24px;
+      font-size: 1.125rem;
+      margin: 0 0 32px;
     }
     .store-links {
       position: fixed;
@@ -117,9 +122,9 @@ module.exports = async function handler(req, res) {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-      width: 100%;
+      gap: 16px;
       padding: 0 20px;
+      width: 100%;
     }
     .store-links a {
       display: flex;
@@ -128,37 +133,41 @@ module.exports = async function handler(req, res) {
       text-decoration: none;
       background: #000;
       color: #fff;
-      padding: 12px 16px;
+      padding: 14px 20px;
       border-radius: 8px;
       width: 100%;
       max-width: 480px;
     }
-    .store-links a .btn-icon {
-      width: 32px;
+    .btn-icon {
+      width: 36px;
       height: auto;
-      margin-right: 12px;
+      margin-right: 14px;
     }
-    .store-links a .small {
-      display: block;
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .small {
       font-size: 0.75rem;
       line-height: 1;
-      opacity: 0.8;
+      opacity: 0.85;
     }
-    .store-links a .large {
-      display: block;
-      font-size: 1.25rem;
+    .large {
+      font-size: 1.375rem;
       line-height: 1;
-      font-weight: 600;
+      font-weight: 700;
     }
     @media(min-width: 600px) {
       .store-links {
         position: static;
         flex-direction: row;
         justify-content: center;
-        padding: 20px 0;
+        padding: 40px 0;
       }
       .store-links a {
         width: auto;
+        margin: 0 8px;
       }
     }
   </style>
