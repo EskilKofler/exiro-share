@@ -46,31 +46,31 @@ module.exports = async function handler(req, res) {
       <h1>Passa al livello superiore con Exiro</h1>
       <ul class="feature-list">
         <li>
-          <img src="/icon/bolt.svg" alt="Custom Workouts" class="feat-icon" />
+          <img src="/icon/target.svg" alt="Create Your Workout Plan" class="feat-icon" />
           <div class="feat-content">
-            <span class="feat-title">Custom Workouts</span>
-            <small class="feat-desc">Scegli livello, tempo e attrezzi</small>
+            <span class="feat-title">Create Your Workout Plan</span>
+            <small class="feat-desc">Over 2,300 exercises to build any routine, customizing reps, sets, rest times and more.</small>
           </div>
         </li>
         <li>
-          <img src="/icon/person.svg" alt="Tracking Automatico" class="feat-icon" />
+          <img src="/icon/tech.svg" alt="Smart Recommendations" class="feat-icon" />
           <div class="feat-content">
-            <span class="feat-title">Tracking Automatico</span>
-            <small class="feat-desc">Peso, ripetizioni e tempo sempre registrati</small>
+            <span class="feat-title">Smart Recommendations</span>
+            <small class="feat-desc">Our algorithm filters the Exiro Marketplace to show only the plans best suited to your goals.</small>
           </div>
         </li>
         <li>
-          <img src="/icon/wifi_off.svg" alt="Modalità Offline" class="feat-icon" />
+          <img src="/icon/timer.svg" alt="Live Tracking & Log-Book" class="feat-icon" />
           <div class="feat-content">
-            <span class="feat-title">Modalità Offline</span>
-            <small class="feat-desc">Allenati ovunque, senza connessione</small>
+            <span class="feat-title">Live Tracking & Log-Book</span>
+            <small class="feat-desc">Track kilos, reps and sessions for every program; follow video tutorials and a built-in timer in one screen.</small>
           </div>
         </li>
         <li>
-          <img src="/icon/store.svg" alt="Marketplace Integrato" class="feat-icon" />
+          <img src="/icon/shop.svg" alt="Marketplace & Monetization" class="feat-icon" />
           <div class="feat-content">
-            <span class="feat-title">Marketplace Integrato</span>
-            <small class="feat-desc">Crea, condividi e monetizza i tuoi programmi</small>
+            <span class="feat-title">Marketplace & Monetization</span>
+            <small class="feat-desc">Download, publish and earn real money from your routines thanks to Stripe.</small>
           </div>
         </li>
       </ul>
