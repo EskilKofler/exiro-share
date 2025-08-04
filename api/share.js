@@ -42,11 +42,13 @@ module.exports = async function handler(req, res) {
   // Fallback HTML: lista verticale di feature + pulsanti + nota
   const downloadHtml = `
     <div class="download-container">
-      <img src="/img/exiro_logo_transparent.png" alt="Exiro Logo" class="logo" />
-      <h1>Passa al livello superiore con Exiro</h1>
+      <div class="header">
+        <img src="/img/exiro_logo_transparent.png" alt="Exiro Logo" class="logo" />
+        <h1 class="title">Passa al livello superiore con Exiro</h1>
+      </div>
       <ul class="feature-list">
         <li>
-          <img src="/icon/event_note.svg" alt="Create Your Workout Plan" class="feat-icon" />
+          <img src="/icon/dumbbell.svg" alt="Create Your Workout Plan" class="feat-icon" />
           <div class="feat-content">
             <span class="feat-title">Create Your Workout Plan</span>
             <small class="feat-desc">Over 2,300 exercises to build any routine, customizing reps, sets, rest times and more.</small>
@@ -115,9 +117,10 @@ module.exports = async function handler(req, res) {
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; height: 100%; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #FAFAFA; color: #333; position: relative; padding-bottom: 80px; }
-    .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; text-align: center; }
-    .logo { width: 120px; height: auto; margin: 0 auto 24px; display: block; }
-    h1 { font-size: 2rem; margin: 0 0 24px; line-height: 1.2; font-weight: 800; }
+    .download-container { width: 100%; max-width: 480px; margin: 40px auto 0; padding: 0 16px; display: flex; flex-direction: column; min-height: 100vh; }
+    .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .logo { width: 120px; height: auto; }
+    .title { font-size: 2rem; margin: 0; line-height: 1.2; font-weight: 800; text-align: left; }
     .feature-list { list-style: none; padding: 0; margin: 0 0 40px; }
     .feature-list li { display: flex; align-items: center; margin-bottom: 16px; }
     .feat-icon { width: 32px; height: auto; margin-right: 12px; filter: brightness(0); }
@@ -126,7 +129,7 @@ module.exports = async function handler(req, res) {
     .feat-desc { display: block; font-size: 0.875rem; color: #666; margin: 4px 0 0; }
     /* Nasconde completamente la scritta */
     .note { display: none; }
-    .store-links { display: flex; flex-direction: column; align-items: center; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; padding: 0px 16px; background: #FAFAFA; }
+    .store-links { display: flex; flex-direction: column; align-items: center; gap: 10px; position: fixed; left: 0; right: 0; bottom: 16px; padding: 0px 16px; background: #FAFAFA; }
     .store-links a { display: flex; flex-direction: row; align-items: center; justify-content: center; text-decoration: none; background: #000; color: #fff; padding: 14px 20px; border-radius: 12px; width: 100%; max-width: 480px; }
     .btn-icon { width: 36px; height: auto; margin-right: 12px; }
     .text { display: flex; flex-direction: column; align-items: center; text-align: center; }
