@@ -129,9 +129,17 @@ module.exports = async function handler(req, res) {
     .text { display: flex; flex-direction: column; align-items: center; text-align: center; }
     .small { font-size: 0.75rem; line-height: 1; opacity: 0.85; }
     .large { font-size: 1.375rem; line-height: 1; font-weight: 700; margin-top: 2px; }
-    .note { font-size: 0.75rem; color: #666; margin: 0 auto 40px; text-align: center; }
+    .note {
+      font-size: 0.75rem;
+      color: #666;
+      margin: 8px auto 0; /* più vicina al pulsante su mobile */
+      text-align: center;
+    }
     @media(min-width: 600px) {
       .store-links { position: static; padding: 0; bottom: auto; background: transparent; flex-direction: row; justify-content: center; margin-top: 24px; }
+      .store-links a { width: auto; margin: 0 8px; }
+      .note { margin: 0 auto 80px; /* più spazio su desktop */ }
+    }
       .store-links a { width: auto; margin: 0 8px; }
     }
   </style>
