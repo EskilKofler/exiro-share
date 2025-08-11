@@ -1,4 +1,5 @@
 {
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/apple-app-site-association",
@@ -7,6 +8,16 @@
     {
       "source": "/.well-known/apple-app-site-association",
       "headers": [{ "key": "Content-Type", "value": "application/json" }]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/share/(.*)",
+      "destination": "/api/share?token=$1"
+    },
+    {
+      "source": "/program/(.*)",
+      "destination": "/api/share?token=$1"
     }
   ]
 }
