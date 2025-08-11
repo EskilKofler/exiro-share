@@ -1,23 +1,13 @@
 {
   "trailingSlash": false,
   "headers": [
-    {
-      "source": "/apple-app-site-association",
-      "headers": [{ "key": "Content-Type", "value": "application/json" }]
-    },
-    {
-      "source": "/.well-known/apple-app-site-association",
-      "headers": [{ "key": "Content-Type", "value": "application/json" }]
-    }
+    { "source": "/apple-app-site-association", "headers": [{ "key": "Content-Type", "value": "application/json" }] },
+    { "source": "/.well-known/apple-app-site-association", "headers": [{ "key": "Content-Type", "value": "application/json" }] }
   ],
   "rewrites": [
-    {
-      "source": "/share/(.*)",
-      "destination": "/api/share?token=$1"
-    },
-    {
-      "source": "/program/(.*)",
-      "destination": "/api/share?token=$1"
-    }
+    { "source": "/apple-app-site-association", "destination": "/api/aasa" },
+    { "source": "/.well-known/apple-app-site-association", "destination": "/api/aasa" },
+    { "source": "/share/(.*)", "destination": "/api/share?token=$1" },
+    { "source": "/program/(.*)", "destination": "/api/share?token=$1" }
   ]
 }
