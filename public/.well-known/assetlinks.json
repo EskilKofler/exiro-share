@@ -2,7 +2,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.example.ekoach",
+      "package_name": "com.exiro.app",
       "sha256_cert_fingerprints": [
         "5F:15:4E:D8:FC:09:BC:F4:4D:5C:78:F6:03:99:3D:45:A2:31:BA:5C:9D:F0:FB:88:2E:4F:9E:CA:30:FF:B2:57"
       ]
