@@ -1,12 +1,12 @@
 {
-  "rewrites": [
+  "headers": [
     {
-      "source": "/share/:token",
-      "destination": "/api/share?token=:token"
+      "source": "/apple-app-site-association",
+      "headers": [{ "key": "Content-Type", "value": "application/json" }]
     },
     {
-      "source": "/program/:docId",
-      "destination": "/api/share?token=:docId"
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [{ "key": "Content-Type", "value": "application/json" }]
     }
   ]
 }
